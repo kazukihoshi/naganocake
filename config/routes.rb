@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-    root to: 'homes#top'
+    root to:'homes#top'
     get 'about' => 'homes#about'
     resources :orders,only: [:new, :index, :show, :create]
     get 'orders/confirm' => 'orders#confirm'
