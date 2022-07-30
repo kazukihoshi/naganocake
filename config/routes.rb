@@ -1,44 +1,24 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  namespace :admin do
-    get 'orders/show'
-  end
   
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-    get 'orders/confirm'
-    get 'orders/complete'
-  end
+    root to: 'homes#top'
+    get 'about' => 'homes#about'
+    resources :orders,only: [:new, :index, :show, :create]
+    get 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
+    resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all]
+    get 'cart_items' => 'cart_items#index'
+    resources :items, only: [:index, :show]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   
-  namespace :public do
-    get 'cart_items/index'
-  end
   
   namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
+    resources :orders, only: [:show]
+    get 'admin' => 'homes#top'
+    resources :genres, only: [:index, :edit, :create, :update]
+    resources :items, only: [:index, :new, :show, :edit, :create, :update]
+  end 
   
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/new'
-    get 'items/edit'
-  end
-  
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
-  
+   
   devise_for :admins,skip: [:registrations,:passwords], controllers:{
     sessions: "admin/sessions"
   }
