@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-    root to:'homes#top'
-    get 'about' => 'homes#about'
+    root to: 'public/homes#top'
+    get 'about' => 'public/homes#about'
     resources :orders,only: [:new, :index, :show, :create]
     get 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
@@ -9,13 +9,16 @@ Rails.application.routes.draw do
     get 'cart_items' => 'cart_items#index'
     resources :items, only: [:index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :customers, only: [:show,:edit]
+    get 'customers/unsubscribe'
   
   
   namespace :admin do
     resources :orders, only: [:show]
-    get 'admin' => 'homes#top'
+    get 'admin' => 'admin/homes#top'
     resources :genres, only: [:index, :edit, :create, :update]
     resources :items, only: [:index, :new, :show, :edit, :create, :update]
+    resources :customers, only: [:index,:show,:edit]
   end 
   
    
