@@ -5,61 +5,65 @@
     </div>
   </div>
   
- 
-  <form class="form-horizontal">
+  <div class="row">
+    <div class="col-7 mt-5">
+      
     
-    <%= form_with model: @item, url: '/admin/items/new' do |f| %>
+      <%= form_with model: @item, url: admin_items_path, local: true, method: :POST do |f| %>
     
-      <div class="form-group row mr-5">
-        <%= f.label :"商品画像" %>
-        <div class="col-sm-4">
-           <%= f.file_field :image,accept: "image/*",class: "form-control-file image" %>
+        <div class="form-group mr-5 mt-2">
+          <%= f.label :"商品画像" %>
+          <div class="col-sm-4">
+             <%= f.file_field :image,accept: "image/*",class: "form-control-file image" %>
+          </div>
         </div>
-      </div>
       
-      <div class="form-group row mr-5">
-        <%= f.label :"商品名" %>
-        <div class="col-sm-4">
-          <%= f.text_field :name, class: "form-control" %>
+        <div class="form-group mr-5 mt-2">
+          <%= f.label :"商品名" %>
+          <div class="col-sm-4">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
         </div>
-      </div>
       
-      <div class="form-group row mr-5">
-        <%= f.label :"商品説明" %>
-        <div class="col-sm-4">
-          <%= f.text_area :introduction, class: "form-control" %>
+        <div class="form-group mr-5 mt-2">
+          <%= f.label :"商品説明" %>
+          <div class="col-sm-4">
+            <%= f.text_area :introduction, class: "form-control" %>
+          </div>
         </div>
-      </div>
       
-      <div class="form-group row mr-5">
-        <%= f.label :"ジャンル" %>
-        <div class="col-sm-4">
-          <%= f.select :genre_id,[[]] %>
+        <div class="form-group mr-5 mt-2">
+          <%= f.label :"ジャンル" %>
+          <div class="col-sm-4">
+            <%= f.select :genre_id,[[]] %>
+          </div>
         </div>
-      </div>
       
-      <div class="form-group row mr-5">
-        <%= f.label :"税抜価格" %>
-        <div class="col-sm-4">
-          <%= f.text_field :price, class: "form-control" %>円
+        <div class="form-group mr-5 mt-2">
+          <%= f.label :"税抜価格" %>
+          <div class="col-sm-4">
+            <%= f.text_field :price, class: "form-control" %>円
+          </div>
         </div>
-      </div>
       
-      <div class="form-group row mr-5">
-        <%= f.label :"販売ステータス" %>
-        <%= f.radio_button :is_active, "販売中"  %>
-        <%= f.label :is_actice, "販売中", value: "販売中" %>
-        <%= f.radio_button :is_active, "販売停止中" %>
-        <%= f.label :is_active, "販売停止中", value: "販売停止中" %>
-      </div>
-      
-      <div class="form-group row mr-5">
-        <div class="col-sm-4">
-          <%= f.submit '新規登録', class: "btn btn-success" %>
+        <div class="form-group mr-5 mt-2">
+          <%= f.label :"販売ステータス" %>
+          <%= f.radio_button :is_active, "販売中"  %>
+          <%= f.label :is_actice, "販売中", value: "販売中" %>
+          <%= f.radio_button :is_active, "販売停止中" %>
+          <%= f.label :is_active, "販売停止中", value: "販売停止中" %>
         </div>
-      </div>
+      
+        <div class="form-group mr-5">
+          <div class="col-sm-4">
+            <%= f.submit '新規登録', class: "btn btn-success" %>
+          </div>
+        </div>
      
-    <% end %>
+      <% end %>
   
-  </form>
+      
+    </div>
+  </div>
+  
 </div>

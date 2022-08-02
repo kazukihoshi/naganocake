@@ -1,28 +1,34 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-3 mt-5">
       <h4>ジャンル編集</h4>
     </div>
   </div>
   
- 
-  <form class="row form-inline">
-    
-    <%= form_with model: @genre, url: '/admin/genres' do |f| %>
-    
-      <div class="form-group mr-5">
-        <%= f.label :"ジャンル名" %>
-      </div>
-      
-      <div class="form-group mr-5">
-        <%= f.text_field :name, class: "form-control" %>
-      </div>
-      
-      <div class="form-group mr-5">
-        <%= f.submit '変更を保存', class: "btn btn-success" %>
-      </div>
+  <div class="row">
+    <div class="col-7 mt-5">
      
-    <% end %>
+    
+        <%= form_with model: @genre, url: admin_genre_path, local: true, method: :PATCH do |f| %>
+    
+          <div class="form-group mr-5">
+            <%= f.label :"ジャンル名" %>
+          </div>
+      
+          <div class="form-group mr-5">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+      
+          <div class="form-group mr-5">
+            <%= f.submit '変更を保存', class: "btn btn-success" %>
+          </div>
+     
+        <% end %>
   
-  </form>
+       
+      
+      
+    </div>
+  </div>  
 </div>
+ 

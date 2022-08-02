@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end 
   
    
-  devise_for :admins,skip: [:registrations,:passwords], controllers:{
+  devise_for :admin,skip: [:registrations,:passwords], controllers:{
     sessions: "admin/sessions"
   }
   
