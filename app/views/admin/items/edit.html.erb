@@ -6,9 +6,9 @@
   </div>
   
  
-  <form>
+
     
-    <%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
+    <%= form_with model: @item, url: admin_item_path, local: true, method: :PATCH do |f| %>
     
       <div class="form-group row my-3">
         <%= f.label :"商品画像",class: "col-sm-2 col-form-label" %>
@@ -61,5 +61,5 @@
      
     <% end %>
   
-  </form>
+ 
 </div>
