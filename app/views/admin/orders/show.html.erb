@@ -49,19 +49,22 @@
           </tr>
         </thead>
         <tbody>
-          <% @orders.each do |order| %>
+          <% @order_details.each do |order_detail| %>
             <tr>
               <td>
-                <%= order.created_at %>
+                <%= order_detail.item.name %>
               </td>
               <td>
-                <%= order.name %>
+                <%= order_detail.item.price %>
               </td>
               <td>
-                <%= order.quantity %>
+                <%= order_detail.quantity %>
               </td>
               <td>
-                <%= order.is_active %>
+                <%= order_detail.quantity * order_detail.item.price %>
+              </td>
+              <td>
+                <%= order_detail.is_active %>
               </td>
             </tr>
           <% end %>
