@@ -18,19 +18,19 @@
           </tr>
         </thead>
         <tbody>
-          <% @customers.each do |customer| %>
+          <% @orders.each do |order| %>
             <tr>
               <td>
-                <%= customer.created_at %>
+                <%= order.created_at %>
               </td>
               <td>
-                <%= customer.full_name %>
+                <%= order.name %>
               </td>
               <td>
-                <%= customer.quantity %>
+                <%= order.quantity %>
               </td>
               <td>
-                <%= customer.is_active %>
+                <%= order.is_active %>
               </td>
             </tr>
           <% end %>
