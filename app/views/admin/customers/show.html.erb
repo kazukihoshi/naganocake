@@ -40,7 +40,12 @@
             <th>会員ステータス</th>
             <th><%= @customer.is_active %></th>
           </tr>
-          
+          <tr>
+            <th>
+              <%= link_to "編集する",edit_admin_customer(@customer.id), class: "btn btn-success" %>
+              <%= link_to "注文履歴一覧を見る", admin_path, class: "btn btn-primary" %>
+            </th>
+          </tr>
         </tbody>
       </table>
     </div>

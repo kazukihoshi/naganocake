@@ -21,13 +21,13 @@
           <% @customers.each do |customer| %>
             <tr>
               <td>
-                <%= customer.id %>
+                <%= customer.created_at %>
               </td>
               <td>
                 <%= customer.full_name %>
               </td>
               <td>
-                <%= customer.email %>
+                <%= customer.quantity %>
               </td>
               <td>
                 <%= customer.is_active %>
