@@ -1,54 +1,67 @@
 <div class="container">
  
   <div class="row">
-    <div class="col-4">
+    <div class="col-4 mt-4 mb-4 text-center bg-secondary ">
       <h2>管理者ログイン</h2>
     </div>
   </div>
   
-  
-  <div class="row gx-5">
-    <%= form_with model:@admin, url: new_admin_session_path(resource_name) do |f| %>
-    
-      <div class="col-5 text-center">
-        <div class="field">
-          <%= f.label :メールアドレス %>
+
+  <!--<div class="row justify-content-center">-->
+    <!--<div class="col-auto">-->
+      <%= form_with model:@admin, url: new_admin_session_path(resource_name) do |f| %>
+        <!--<div class="form-inline mb-3">-->
+        <div class="row mb-3">
+          <div class="col text-right">
+            <div class="field">
+              <%= f.label :email, "メールアドレス" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-7">
-        <div class="field">
-         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          
+        <!--</div>-->
+        
+        <!--<div class="form-inline mb-3">-->
+        <div class="row mb-3">
+          <div class="col text-right">
+            <div class="field">
+              <%= f.label :password, "パスワード" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
+          </div>
         </div>
-      </div>
-   
-      <div class="col-5 text-center">
-        <div class="field">
-          <%= f.label :パスワード %>
-        </div>
-      </div>
-      <div class="col-7">
-        <div class="field">
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-      </div>
-   
+          
+         
+            
+          </div>
+        <!--</div>-->
+        
  
-      <div class="col text-center">
-         <div class="actions">
-           <%= f.submit "ログイン", class: "btn btn-primary" %>
-         </div>
-      </div>
+        <div class="text-center">
+           <div class="actions">
+             <%= f.submit "ログイン", class: "btn btn-primary" %>
+           </div>
+        </div>
     
-    <% end %>
+      <% end %>
+    <!--</div>-->
+    
   </div>
   
-    
-    
-    
+  
         
   
       
-</div>
+</section>
 
 
 
