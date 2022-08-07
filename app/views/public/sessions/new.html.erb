@@ -1,26 +1,80 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container">
+  <div class="row">
+    <div class="col-4 mt-4 mb-4 text-center bg-secondary">
+      <h2>ログイン</h2>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+  <div class="row">
+    <div class="col-6 mt4 mb-4 text-center bg-secondary">
+      <h4>会員の方はこちらからログイン</h4>
+    </div> 
+  </div>
+</div>
 
-<%= render "public/shared/links" %>
+
+<%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: resource, url: customer_session_path(resource_name), method: :POST do |f| %>
+
+  <div class="row mb-3">
+    <div class="col text-right">
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col text-right">
+      <div class="field">
+        <%= f.label :password, "パスワード" %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col text-center">
+      <div class="actions">
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  
+<% end %>
+  
+  <%# if devise_mapping.rememberable? %>
+    <!--<div class="field">-->
+      <%# end %>
+
+  <!--<div class="actions">-->
+    <%#= f.submit "Log in" %>
+  <!--</div>-->
+  
+  <div class="row">
+    <div class="col">
+      <h4>会員登録がお済みでない方</h4>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col text-right">
+      <p>
+        <%= render "public/shared/links" %>
+      </p>
+    </div>
+    <div class="col">
+      <p>から会員登録を行ってください。</p>
+    </div>
+  </div>
+<%#= render "public/shared/links" %>
+
+</div>

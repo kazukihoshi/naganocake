@@ -14,8 +14,11 @@ Rails.application.routes.draw do
     get 'cart_items' => 'cart_items#index'
     resources :items, only: [:index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :customers, only: [:show,:edit]
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
     get 'customers/unsubscribe'
+    patch 'customers/withdraw'
   
   
   namespace :admin do
