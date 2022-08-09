@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   }
   
   scope module: :public do
-    root to: 'public/homes#top'
-    get 'about' => 'public/homes#about'
+    root to: 'homes#top'
+    get 'about' => 'homes#about'
     resources :orders,only: [:new, :index, :show, :create]
     get 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
