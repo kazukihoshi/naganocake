@@ -41,11 +41,13 @@
              <%= @item.price.to_s(:delimited) %>円
            </th>
          </tr>
-         <tr>
-           <th></th>
-         </tr>
        </tbody>
      </table>
+     <%= form_with model: @item, url: cart_items_path, local: true, method: :GET do |f| %>
+       <%#= f.hidden_field :amount, :value => item_id %>
+       <%= f.select :amount,*[1..10] %>
+       <%= f.submit "カートに入れる", class: "btn btn-success" %>
+     <% end %>
     </div>
   </div>
 </div>
