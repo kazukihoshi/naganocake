@@ -43,8 +43,8 @@
          </tr>
        </tbody>
      </table>
-     <%= form_with model: @item, url: cart_items_path, local: true, method: :GET do |f| %>
-       <%#= f.hidden_field :amount, :value => item_id %>
+     <%= form_with model: @cart_item, url: cart_items_path, local: true, method: :POST do |f| %>
+       <%= f.hidden_field :item_id, :value => @item.id %>
        <%= f.select :amount,*[1..10] %>
        <%= f.submit "カートに入れる", class: "btn btn-success" %>
      <% end %>
