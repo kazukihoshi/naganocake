@@ -31,7 +31,14 @@
               </td>
               <td>
                 <%= cart_item.amount %>
+                <%= select_tag 'amount' %>
                 <%= link_to "変更", cart_items_path, class: "btn btn-success" %>
+              </td>
+              <td>
+                <%= cart_item.item.add_tax_price * cart_item.amount %>
+              </td>
+              <td>
+                <%= link_to "削除する", cart_item_path(cart_item.id), method: :DELETE, class: "btn btn-danger" %>
               </td>
             </tr>
           <% end %>
