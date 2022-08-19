@@ -19,8 +19,8 @@
       </table>
     </div>
     
-    <div class="col-9 mt-5">
-      <div class="main-visual">
+    <div class="col-9 p-5">
+      <div class="main-visual border">
         <p>ようこそ、ながのCAKEへ!</p>
         <p>このサイトは、ケーキ販売のECサイトになります。</p>
         <p>会員でない方も商品の閲覧はできますが、</p>
@@ -37,7 +37,7 @@
       
       
       <% @items.each do |item| %>
-        <%= image_tag item.image, size: "100x100" %>
+        <%= image_tag item.image, size: "100x100" %></br>
         <%= item.name %></br>
         <%= item.price.to_s(:delimited) %>円</br>
       <% end %>

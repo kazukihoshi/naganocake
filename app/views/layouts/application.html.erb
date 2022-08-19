@@ -20,7 +20,7 @@
           </button>
           <div class="navbar-collapse collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <% if customer_signed_in? %>
+              <% if admin_signed_in? %>
               <li>
                 <%= link_to admin_items_path, class: 'nav-link text-light' do %>
                   商品一覧
@@ -47,7 +47,7 @@
                 <% end %>
               </li>
               
-              <% else public_signed_in? %>
+              <% elsif customer_signed_in? %>
               <li>
                 <%= link_to customers_my_page_path, class: 'nav-link text-light' do %>
                   マイページ
