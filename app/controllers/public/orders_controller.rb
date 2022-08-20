@@ -53,7 +53,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    
+    order = Order.new
+    #order.payment_method = params[:order][:payment_method]
+    order.save
+    redirect_to orders_complete_path
   end
 
 
