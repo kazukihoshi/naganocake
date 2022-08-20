@@ -69,3 +69,5 @@ gem "enum_help"
 gem "net-smtp"
 
 gem 'kaminari','~> 1.2.1'
+
+gem 'pry-rails'

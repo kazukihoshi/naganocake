@@ -2,7 +2,7 @@ class Public::CartItemsController < ApplicationController
   def index
     #@cart_item = CartItem.new(cart_item_params)
     @cart_items = current_customer.cart_items
-    @total = 0
+    @total_price = 0
   end
   
   def create

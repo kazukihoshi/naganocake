@@ -22,7 +22,7 @@
         </thead>
         <tbody>
           <% @cart_items.each do |cart_item| %>
-          <% @total = @total += cart_item.subtotal %>
+          <% @total_price = @total_price += cart_item.subtotal %>
             <tr>
               <td>
                 <%= cart_item.item.name %>
@@ -57,7 +57,7 @@
     </div>
     <div class="col">
       <P class="title">合計金額</p>
-      <%= @total %>
+      <%= @total_price %>
     </div>
   </div>
   

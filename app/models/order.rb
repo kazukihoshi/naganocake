@@ -7,9 +7,5 @@ class Order < ApplicationRecord
   has_many :items, through: :order_details
   belongs_to :customer
   
-  def order_total
-    total += cart_items.item.subtotal
-  end
-  
 end
 

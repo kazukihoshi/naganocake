@@ -16,10 +16,13 @@ class Public::OrdersController < ApplicationController
     @order.postal_code = @address.postal_code
     @order.address = @address.address
     @order.name = @address.name
+    @order.payment_method = params[:order][:payment_method]
     # @order.select_address = @address.select_address
     # @order.address_id = @address.address_id
     @cart_items = current_customer.cart_items.all
-   
+    @total_price = 0
+    @order.billing_amount = @order.postage.to_s + @total_price.to_s
+    
     
     if params[:order][:select_address] == 0
       @order.postal_code = current_customer.postal_code
@@ -44,10 +47,15 @@ class Public::OrdersController < ApplicationController
       #render 'new'
     end
     
+    #binding.pry
     @order.save
-   
     
   end
+
+  def create
+    
+  end
+
 
   def complete
   end

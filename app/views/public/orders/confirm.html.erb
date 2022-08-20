@@ -25,6 +25,7 @@
           </tr>
         </thead>
         <% @cart_items.each do |cart_item| %>
+        <% @total_price = @total_price += cart_item.subtotal %>
         <tbody>
           <tr>
             <td>
@@ -62,7 +63,7 @@
               商品合計
             </th>
             <td>
-              <%= @order.order_total %>
+              <%= @total_price %>
             </td>
           </tr>
           <tr>
@@ -70,12 +71,34 @@
               請求金額
             </th>
             <td>
-              <% billing_amount = @postage + order_total %>
-              <%= @order.billing_amount %>
+              <%= @order.postage + @total_price %>
             </td>
           </tr>
       </table>
-        
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <h6>支払方法</h6>
+    </div>
+    <div class="col">
+      <%= @order.payment_method_i18n %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <h6>お届け先</h6>
+    </div>
+    <div class="col">
+      <%= @address.address_display %>
+    </div>
+  </div>
+  
+  <div claaa="row">
+    <div class="col">
+      <%= link_to "注文を確定する", orders_complete_path, class: "btn btn-success" %>
     </div>
   </div>
 </div>
