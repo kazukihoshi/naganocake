@@ -26,6 +26,7 @@ class Public::CartItemsController < ApplicationController
   end
   
   def destroy_all
+    current_customer = Customer.find(params[:customer][:customer_id])
     current_customer.cart_item.destroy_all
     redirect_to items_path
   end  
@@ -45,6 +46,6 @@ class Public::CartItemsController < ApplicationController
   private
   
   def cart_item_params
-    params.require(:cart_item).permit(:item_id, :amount)
+    params.require(:cart_item).permit(:item_id, :amount, :customer_id)
   end
 end

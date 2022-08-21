@@ -44,7 +44,7 @@ class Public::OrdersController < ApplicationController
       redirect_to orders_confilm_path
       
     else
-      #render 'new'
+      #render :new
     end
     
     #binding.pry
@@ -53,10 +53,24 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new
+    cart_items = current_customer.cart_items.all
     #order.payment_method = params[:order][:payment_method]
-    order.save
-    redirect_to orders_complete_path
+    @order = current_customer.orders.new
+    if @order.save
+      cart_details.each do |cart_details|
+        order_details = OrderDetails.new
+        order_details.item_id = cart_item.item_id
+        order_details.order_id = @order.id
+        order_details.quantity = cart_item.amount
+        order_details.price = cart_item.price
+        order_details.save
+      end
+        redirect_to orders_complete_path
+        cart_items.destroy_all
+    else
+      @order = order.new
+      render :new
+    end
   end
 
 
