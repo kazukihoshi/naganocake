@@ -24,7 +24,9 @@
     </div>
     <div class="col">
       <% @items.each do |item| %>
-        <%= image_tag item.image, size: "100x100" %>
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.image, size: "100x100" %>
+        <% end %>
         <%= item.name %>
         <%= item.price.to_s(:delimited) %>円
       <% end %>

@@ -10,6 +10,7 @@ class Public::ItemsController < ApplicationController
     @cart_item = CartItem.new
     #p @item.amount
     @item.save
+    #redirect_to cart_items_path
   end
   
   
