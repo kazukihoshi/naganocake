@@ -68,8 +68,8 @@ class Public::OrdersController < ApplicationController
         order_details.save!
       end 
         
-        @cart_items.destroy_all
-        redirect_to orders_complete_path
+      @cart_items.destroy_all
+      redirect_to orders_complete_path
     else
       render :new
     end

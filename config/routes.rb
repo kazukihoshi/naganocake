@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    resources :orders,only: [:new, :index, :show, :create]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
+    resources :orders,only: [:new, :index, :show, :create]
+    #post 'orders/confirm' => 'orders#confirm'
+    #get 'orders/complete' => 'orders#complete'
     resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     #get 'cart_items' => 'cart_items#index'
