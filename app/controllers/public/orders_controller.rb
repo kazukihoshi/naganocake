@@ -8,6 +8,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @cart_items = current_customer.cart_items.all
   end
 
   def confirm
@@ -81,7 +83,7 @@ class Public::OrdersController < ApplicationController
   
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :select_address, :address_id, :billing_amount)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :select_address, :address_id, :billing_amount, :created_at)
   end
   
 end
