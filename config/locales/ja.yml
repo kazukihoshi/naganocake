@@ -18,4 +18,7 @@ ja:
         waiting_for_production: "製作待ち"
         production: "製作中"
         production_completed: "製作完了"
-    
+  
+  time:
+    formats:
+      default: "%Y/%m/%d"

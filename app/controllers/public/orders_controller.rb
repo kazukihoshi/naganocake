@@ -5,11 +5,21 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders.all
   end
 
   def show
     @order = Order.find(params[:id])
     @cart_items = current_customer.cart_items.all
+    @total_price = 0
+    @cart_items.each do |cart_item|
+      @total_price += cart_item.item.add_tax_price * cart_item.subtotal
+      #sum += (cart_item.item.price_without_tax * 1.1).floor * cart_item.quantity
+		end
+      #@total += cart_item.subtotal
+    #end
+      
+    #@total_price += @cart_items.subtotal
   end
 
   def confirm
@@ -26,20 +36,20 @@ class Public::OrdersController < ApplicationController
     @order.billing_amount = @order.postage.to_s + @total_price.to_s
     
     
-    if params[:order][:select_address] == 0
+    if params[:order][:select_address] == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
       #redirect_to orders_confirm_path
        
-    elsif params[:order][:select_address] == 1
+    elsif params[:order][:select_address] == "1"
       @address = Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
       @order.address = @address.address
       @order.name = @address.name
       #redirect_to orders_confirm_path
        
-    elsif params[:order][:select_address] == 2
+    elsif params[:order][:select_address] == "2"
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
