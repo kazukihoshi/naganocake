@@ -10,12 +10,12 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @cart_items = current_customer.cart_items.all
-    @total_price = 0
-    @cart_items.each do |cart_item|
-      @total_price += cart_item.item.add_tax_price * cart_item.subtotal
+    #@cart_items = current_customer.cart_items.all
+    @order_details = @order.order_details
+    #@cart_items.each do |cart_item|
+      #@total_price += cart_item.item.add_tax_price * cart_item.subtotal
       #sum += (cart_item.item.price_without_tax * 1.1).floor * cart_item.quantity
-		end
+		#end
       #@total += cart_item.subtotal
     #end
       
