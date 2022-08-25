@@ -16,7 +16,7 @@
           </tr>
           <tr>
             <th>注文日</th>
-            <th><%= @order.created_at %></th>
+            <th><%= l @order.created_at %></th>
           </tr>
           <tr>
             <th>配送先</th>
@@ -65,10 +65,35 @@
               </td>
               <td>
                 <%= order_detail.is_active %>
+                <%= link_to "更新", admin_order_detail_path(order_detail.id), class: "btn btn-success" %>
               </td>
             </tr>
           <% end %>
         </tbody>
+      </table>
+    </div>
+    
+    <div class="col">
+      <table>
+        <tr>
+          <th>商品合計</th>
+          <td>
+            <% @order.order_details.each do |order_detail| %>
+              <% @total_price += order_detail.quantity * order_detail.item.price %>
+            <% end %>
+            <%= @total_price %>
+          </td>
+        </tr>
+        <tr>
+          <th>送料</th>
+          <td><%= @order.postage %></td>
+        </tr>
+        <tr>
+          <th>請求金額合計</th>
+          <td>
+            <%= @order.postage + @total_price %>
+          </td>
+        </tr>
       </table>
     </div>
   </div>
