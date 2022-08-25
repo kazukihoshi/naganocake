@@ -21,13 +21,20 @@
           <% @orders.each do |order| %>
             <tr>
               <td>
-                <%= order.created_at %>
+                <%= link_to admin_order_path(order.id) do %>
+                  <%= l order.created_at %>
+                <% end %>
               </td>
               <td>
                 <%= order.name %>
               </td>
               <td>
-                <%= order.quantity %>
+                <%# @total_quantity = order.order_details.quantity %>
+                <%# order.order_details.each do |order_detail| %>
+                  <%## byebug %>
+                <%# end %>
+                <%#= @total_quantity %>
+                <%= order.order_details.sum(:quantity) %>
               </td>
               <td>
                 <%= order.is_active %>
