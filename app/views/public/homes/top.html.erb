@@ -35,27 +35,31 @@
         <h4>新着商品</h4>
       </div>
       
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col">
+            <table>
+              <tr>
+                <th>
+                  <%= image_tag item.image, size: "180x130" %>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <%= item.name %>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <%= item.price.to_s(:delimited) %>円
+                </th>
+              </tr>
+            </table>
+          </div>
+        
+        <% end %>
+      </div>
       
-      <% @items.each do |item| %>
-        <table>
-          <tr>
-            <th>
-              <%= image_tag item.image, size: "180x130" %>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <%= item.name %>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <%= item.price.to_s(:delimited) %>円
-            </th>
-            
-          </tr>
-        </table>
-      <% end %>
       
       <div class="index-link">
         <%= link_to "全ての商品を見る >", items_path %>

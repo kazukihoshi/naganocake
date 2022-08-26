@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-3 mt-5 border">
       <table>
         <thead>
           <tr>
@@ -19,17 +19,34 @@
       </table>
     </div>
     
-    <div class="col">
-      <h4>商品一覧(全x件)</h4>
-    </div>
-    <div class="col">
-      <% @items.each do |item| %>
-        <%= link_to item_path(item.id) do %>
-          <%= image_tag item.image, size: "100x100" %>
+    <div class="col-9 mt-5 ">
+      <div class="row">
+        <h4>商品一覧(全x件)</h4>
+      </div>
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col">
+            <table>
+              <tr>
+                <th>
+                  <%= link_to item_path(item.id) do %>
+                    <%= image_tag item.image, size: "100x100" %>
+                  <% end %>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <%= item.name %>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <%= item.price.to_s(:delimited) %>円
+                </th>
+              </tr>
+            </table>
+          </div>
         <% end %>
-        <%= item.name %>
-        <%= item.price.to_s(:delimited) %>円
-      <% end %>
     </div>
     
   </div>

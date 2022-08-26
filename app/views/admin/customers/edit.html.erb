@@ -10,63 +10,63 @@
     <%= form_with model: @customer, url: admin_customer_path(@customer.id), local: true, method: :patch do |f| %>
     
       <div class="form-group row my-3">
-        <%= f.label :"会員ID",class: "col-sm-2 col-form-label" %>
+        <%= f.label :customer_id, "会員ID",class: "col-sm-2 col-form-label" %>
         <div class="col-sm-10">
            <%= @customer.id %>
         </div>
       </div>
       
       <div class="form-group row my-3">
-        <%= f.label :"氏名",class: "col-sm-2 col-form-label" %>
-        <div class="col-sm-10">
+        <%= f.label :name, "氏名",class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-3">
           <%= f.text_field :last_name, class: "form-control" %>
-        <!--</div>-->
-        <!--<div class="col-sm-10">-->
+        </div>
+        <div class="col-sm-3">
           <%= f.text_field :first_name, class: "form-control" %>
         </div>
       </div>
       
       <div class="form-group row mr-5">
-        <%= f.label :"フリガナ",class: "col-sm-2 col-form-label" %>
-        <div class="col-sm-10">
+        <%= f.label :name_kana, "フリガナ",class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-3">
           <%= f.text_field :last_name_kana, class: "form-control" %>
-        <!--</div>-->
-        <!--<div class="col-sm-10">-->
+        </div>
+        <div class="col-sm-3">
           <%= f.text_field :first_name_kana, class: "form-control" %>
         </div>
       </div>
       
       <div class="form-group row mr-5">
-        <%= f.label :"郵便番号",class: "col-sm-2 col-form-label" %>
-        <div class="col-sm-10">
-          <%= f.text_area :postal_code,class: "form-control" %>
+        <%= f.label :postal_code, "郵便番号",class: "col-sm-2 col-form-label" %>
+        <div class="col-3">
+          <%= f.text_field :postal_code, class: "form-control" %>
         </div>
       </div>
       
       <div class="form-group row mr-5">
-        <%= f.label :"住所",class: "col-sm-2 col-form-label" %>
+        <%= f.label :address, "住所",class: "col-sm-2 col-form-label" %>
         <div class="col-sm-10">
-          <%= f.text_area :address,class: "form-control" %>
+          <%= f.text_field :address,class: "form-control" %>
         </div>
       </div>
       
       
       <div class="form-group row mr-5">
-        <%= f.label :"電話番号",class: "col-sm-2 col-form-label" %>
-        <div class="col-sm-10">
+        <%= f.label :telephone_number, "電話番号",class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-3">
           <%= f.text_field :telephone_number, class: "form-control" %>
         </div>
       </div>
       
       <div class="form-group row mr-5">
-        <%= f.label :"メールアドレス",class: "col-sm-2 col-form-label" %>
-        <div class="col-sm-10">
+        <%= f.label :email, "メールアドレス",class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-3">
           <%= f.text_field :email, class: "form-control" %>
         </div>
       </div>
       
       <div class="form-group row mr-5">
-        <%= f.label :"会員ステータス",class: "col-sm-2 col-form-label" %>
+        <%= f.label :is_active, "会員ステータス",class: "col-sm-2 col-form-label" %>
         <%= f.radio_button :is_active, "有効"  %>
         <%= f.label :is_actice, "有効", value: "有効",class: "col-sm-2 col-form-label" %>
         <%= f.radio_button :is_active, "退会" %>
