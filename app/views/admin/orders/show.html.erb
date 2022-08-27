@@ -27,9 +27,13 @@
             <th><%= @order.payment_method_i18n %></th>
           </tr>
           <tr>
-            <th>注文ステータス</th>
-            <th><%= @order.is_active %></th>
-            <th><%= link_to "更新", admin_order_path(@order.id), class: "btn btn-success" %></th>
+            <%= form_with model: @order, url: admin_order_path(@order.id), local: true, method: :PATCH do |f| %>
+              <th><%= f.label :is_active, "注文ステータス" %></th>
+              <th><%= f.select :is_active, options_from_collection_for_select(@orders, :id, :is_active_i18n) %></th>
+            <!--<th>注文ステータス</th>-->
+            <!--<th><%#= @order.is_active %></th>-->
+              <th><%= f.submit "更新", class: "btn btn-success" %></th>
+            <% end %>
           </tr>
         </thead>
       </table>
@@ -64,8 +68,13 @@
                 <%= order_detail.quantity * order_detail.item.price %>
               </td>
               <td>
-                <%= order_detail.is_active %>
-                <%= link_to "更新", admin_order_detail_path(order_detail.id), class: "btn btn-success" %>
+                <%= form_with model: @order_detail, url: admin_order_detail_path(order_detail.id), local: true, method: :PATCH do |f| %>
+                  <%#= f.radio_button :is_active %>
+                  <%#= f.label :is_active, "製作ステータス" %>
+                  <%= f.select :is_active, options_from_collection_for_select(@order_details, :id, :is_active_i18n) %>
+                  <%#= order_detail.is_active %>
+                  <%= f.submit "更新", class: "btn btn-success" %>
+                <% end %>
               </td>
             </tr>
           <% end %>

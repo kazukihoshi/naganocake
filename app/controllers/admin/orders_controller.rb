@@ -3,6 +3,7 @@ class Admin::OrdersController < ApplicationController
   
   def show
     @order = Order.find(params[:id])
+    @orders = Order.all
     @order_details = @order.order_details
     @total_price = 0
   end
