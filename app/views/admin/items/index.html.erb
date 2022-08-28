@@ -1,7 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-3 my-3">
       <h4>商品一覧</h4>
+    </div>
+    <div class="col-2 offset-6 my-3">
+      <%= link_to new_admin_item_path, class: 'text-light' do %>
+        <i class="fas fa-plus-circle fa-3x"></i>
+        <!--<i class="fa-light fa-circle-plus"></i>-->
+        <!--<i class="fa-thin fa-circle-plus"></i>-->
+      <% end %>
     </div>
   </div>
   
