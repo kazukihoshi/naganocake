@@ -30,7 +30,11 @@
             <%= customer.email %>
           </td>
           <td>
-            <%= customer.is_active %>
+            <% if customer.is_active == true %>
+              有効
+            <% else %>
+              無効
+            <% end %>
           </td>
         </tr>
       <% end %>

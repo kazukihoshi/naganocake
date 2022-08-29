@@ -41,7 +41,9 @@
             <table>
               <tr>
                 <th>
-                  <%= image_tag item.image, size: "180x130" %>
+                  <%= link_to item_path(item.id) do %>
+                    <%= image_tag item.image, size: "180x130" %>
+                  <% end %>
                 </th>
               </tr>
               <tr>
