@@ -60,7 +60,7 @@ class Public::OrdersController < ApplicationController
       #render :new
     end
     
-    #binding.pry
+    # binding.pry
     #@order.save
     
   end

@@ -24,8 +24,9 @@
         <div class="form-group pl-4">
           <%= f.radio_button :select_address, 0 %>
           <%= f.label :address, "ご自身の住所" %>
-          <%#= @order.customer.address%>
+          <%= @order.address %>
         </div>
+        
         <div class="form-group pl-4">
           <%= f.radio_button :select_address, 1 %>
           <%= f.label :address, "登録済み住所から選択" %>
