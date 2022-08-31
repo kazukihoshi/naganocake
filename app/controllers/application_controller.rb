@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  # def index
+    # @orders = Order.page(params[:page])
+  # end
+  
 end

@@ -20,7 +20,12 @@
     </div>  
     
     <div class="col-4 mt-5 ml-4">
-      <%= image_tag @item.image, size: "250x180" %>
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "250x180" %>
+      <% else %>
+        <%= image_tag 'no_image.jpeg', size: "250x180" %>
+      <% end %>
+      <%#= image_tag @item.image, size: "250x180" %>
     </div>
     
     <div class="col-5 mt-5">

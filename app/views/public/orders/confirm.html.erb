@@ -60,7 +60,8 @@
           <h6>お届け先</h6>
         </div>
         <div class="col mb-4">
-          <%= @address.address_display %>
+          〒<%= @order.postal_code + @order.address %><br>
+          <%= @order.name %>
         </div>
       </div>
     

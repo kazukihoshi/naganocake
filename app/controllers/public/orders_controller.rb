@@ -3,6 +3,9 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
     @order.customer_id = current_customer.id
     # @addresses = current_customer.address
+    @order.postal_code = current_customer.postal_code
+    @order.address = current_customer.address
+    @order.name = current_customer.last_name + current_customer.first_name
   end
 
   def index

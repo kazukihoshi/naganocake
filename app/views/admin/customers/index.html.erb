@@ -33,14 +33,17 @@
             <% if customer.is_active == true %>
               有効
             <% else %>
-              無効
+              退会
             <% end %>
           </td>
         </tr>
       <% end %>
-      <%= paginate @customers %>
+      <%#= paginate @customers %>
     </tbody>
   </table>
-   
+  
+
+  <%= paginate @customers %>
+  
   
 </div>

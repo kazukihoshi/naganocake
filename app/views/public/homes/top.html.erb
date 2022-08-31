@@ -42,7 +42,12 @@
               <tr>
                 <th>
                   <%= link_to item_path(item.id) do %>
-                    <%= image_tag item.image, size: "180x130" %>
+                    <% if item.image.attached? %>
+                      <%= image_tag item.image, size: "180x130" %>
+                    <% else %>
+                      <%= image_tag 'no_image.jpeg', size: "200x200" %>
+                    <% end %>
+         　　　      　　<%#= image_tag item.image, size: "180x130" %>
                   <% end %>
                 </th>
               </tr>
